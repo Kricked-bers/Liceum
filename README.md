@@ -4,7 +4,7 @@
 ## Установка:
 1. Клонируйте репозиторий:
 ```
-git clone 
+git clone https://github.com/Kricked-bers/Liceum
 ```
 2. Установите зависимости:
 ```
