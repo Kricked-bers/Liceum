@@ -3,7 +3,7 @@ from src.masks import get_mask_account, get_mask_card_number
 
 def mask_account_card(account_number_card: str) -> str:
     """Функция принимает на вход номер карты или счета
-    и возвращает зашифрованный номер карты или номер счета с указанием"""
+    и возвращает зашифрованный номер карты или номер счета с указанием типа"""
     for element in account_number_card.split():
         try:
             int(element)
