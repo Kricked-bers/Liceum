@@ -18,7 +18,7 @@ def mask_account_card(account_number_card: str) -> str:
 
 def get_date(date: str, date_format: str = "Y-m-d") -> str:
     """Функция принимает на вход дату в определенном формате
-    и возвращает в формате ДД.ММ.ГГГ"""
+    и возвращает в формате ГГГГ-ММ-ДД"""
     formated_date = date[:10].split("-")
     if date_format == "d-m-Y":
         formated_date[0], formated_date[2] = formated_date[2], formated_date[0]
