@@ -14,7 +14,7 @@ def filter_by_state(dictionary: list, state_input: str = "EXECUTED") -> Union[li
     return exit_lists
 
 
-def sort_by_date(dictionary: list, filter_input: bool = True) -> Union[list, bool]:
+def sort_by_date(dictionary: list, filter_input: str = "True") -> list:
     """Функция принимает на вход список словарей и условие сортировки
     и возвращает список словарей отсортированный по условию по датам"""
     dates_nosort = [get_date(element["date"]) for element in dictionary]
