@@ -16,10 +16,12 @@ def mask_account_card(account_number_card: str) -> str:
     return "-1"
 
 
-def get_date(date_format: str) -> str:
+def get_date(date: str, date_format: str = "Y-m-d") -> str:
     """Функция принимает на вход дату в определенном формате
-    и возвращает в формате ДД.ММ.ГГГ"""
-    formated_date = date_format[:10].split("-")
-    formated_date[0], formated_date[2] = formated_date[2], formated_date[0]
-    return ".".join(formated_date)
-
+    и возвращает в формате ГГГГ-ММ-ДД"""
+    formated_date = date[:10].split("-")
+    if date_format == "d-m-Y":
+        formated_date[0], formated_date[2] = formated_date[2], formated_date[0]
+        return "-".join(formated_date)
+    else:
+        return "-".join(formated_date)
