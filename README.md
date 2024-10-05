@@ -52,4 +52,4 @@ pytest --cow
 ```commandline
 pytest --cov=src --cov-report=html
 ```
-[HTML-file Pytest](htmlcov/index.html)
+
