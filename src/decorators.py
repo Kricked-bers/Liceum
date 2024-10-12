@@ -2,7 +2,12 @@ from functools import wraps
 from typing import Any
 
 
-def decorator_log(filename: Any = None) -> Any:
+def log(filename: Any = None) -> Any:
+    """Суть декоратора состоит в логировании данных ему функций.
+    При указании названия файла при передаче параметра декоратора filename
+    логи записываются в указанный файл(при отсутствии файла он создается)
+    Если файл не указан логи выводятся в командную строку stdout"""
+
     def wrapper(func: Any) -> Any:
         @wraps(func)
         def inner(*args: Any, **kwargs: Any) -> Any:

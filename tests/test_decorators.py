@@ -1,8 +1,8 @@
-from src.decorators import decorator_log
+from src.decorators import log
 
 
-def test_decorator_log_basic():
-    @decorator_log()
+def test_log_basic():
+    @log()
     def calculate(x, y):
         """Функция умножающая два числа"""
         result = x * y
@@ -15,8 +15,8 @@ def test_decorator_log_basic():
     assert calculate.__doc__ == "Функция умножающая два числа"
 
 
-def test_decorator_log_commandline_no_error(capsys):
-    @decorator_log()
+def test_log_commandline_no_error(capsys):
+    @log()
     def calculate(x, y):
         """Функция умножающая два числа"""
         result = x * y
@@ -29,8 +29,8 @@ def test_decorator_log_commandline_no_error(capsys):
     assert captured.out.split("\n")[2] == "calculate ok."
 
 
-def test_decorator_log_commandline_error(capsys):
-    @decorator_log()
+def test_log_commandline_error(capsys):
+    @log()
     def calculate(x, y):
         """Функция умножающая два числа"""
         result = x * y
@@ -45,8 +45,8 @@ def test_decorator_log_commandline_error(capsys):
     )
 
 
-def test_decorator_log_file():
-    @decorator_log(filename="log_text.txt")
+def test_log_file():
+    @log(filename="log_text.txt")
     def calculate(x, y):
         result = x * y
         return result
