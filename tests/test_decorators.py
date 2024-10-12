@@ -40,7 +40,7 @@ def test_log_commandline_error(capsys):
     captured = capsys.readouterr()
     assert captured.out.split("\n")[0] == "The calculate has been stopped"
     assert (
-        captured.out.split("\n")[1] == "calculate error: test_decorator_log_commandline_error.<locals>.calculate() "
+        captured.out.split("\n")[1] == "calculate error: test_log_commandline_error.<locals>.calculate() "
         "missing 1 required positional argument: 'y', inputs: ((1,), {})"
     )
 
