@@ -18,6 +18,9 @@ flake8 = "^7.1.1"
 mypy = "^1.11.2"
 black = "^24.8.0"
 isort = "^5.13.2"
+requests = "^2.32.3"
+python-dotenv = "^1.0.1"
+types-requests = "^2.32.0.20241016"
 
 
 [build-system]
