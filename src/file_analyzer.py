@@ -5,6 +5,8 @@ import pandas as pd
 
 
 def csv_analyzer(directory: str) -> list:
+    '''Функция принимает на вход путь до csv файла и
+    возращает список со словарями'''
     if not isinstance(directory, str) or len(directory) == 0:
         return []
     try:
@@ -16,6 +18,8 @@ def csv_analyzer(directory: str) -> list:
 
 
 def xls_analyzer(directory: str) -> Any:
+    '''Функция принимает на вход путь до xlsx файла и
+    возращает список со словарями'''
     if not isinstance(directory, str) or len(directory) == 0:
         return []
     try:
@@ -26,4 +30,3 @@ def xls_analyzer(directory: str) -> Any:
         return []
 
 
-print(xls_analyzer(r"C:\Users\islam\PycharmProjects\Liceum\data\none.xlsx"))
