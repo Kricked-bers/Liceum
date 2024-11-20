@@ -31,8 +31,9 @@ def get_date(date: str, date_format: str = "Y-m-d") -> str:
         formated_date = date[:10].split("-")
         formated_date[0], formated_date[2] = formated_date[2], formated_date[0]
         return "-".join(formated_date)
+    elif date_format == "d.m.Y":
+        formated_date = date[:10].split("-")
+        formated_date[0], formated_date[2] = formated_date[2], formated_date[0]
+        return ".".join(formated_date)
     else:
         return date[:10]
-
-
-print(mask_account_card("4565456546546546"))

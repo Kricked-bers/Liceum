@@ -60,6 +60,12 @@ csv_analyzer(directory: str) -> list - Функция принимает на в
 
 xls_analyzer(directory: str) -> Any - Функция принимает на вход путь до xlsx файла и
 возращает список со словарями
+
+re_search_string(transactions: list, search_string: str) -> list - Функция принимает на вход список словарей и строку
+и возвращает список словарей в описании которых есть искомое слово
+
+counting_in_the_dictionary(transactions: list, search_desk: list) -> list - Функция принимает на вход список словарей и список описаний транзакий
+и возвращает словарь типа Описание: Кол-во записей с списке словарей с искомым описанием
 ```
 
 4. Тесты
@@ -111,4 +117,14 @@ from dotenv import load_dotenv
 load_dotenv()
 api_token = os.getenv("API_KEY")
 headers = {"apikey": api_token}
+```
+
+7. Запуск основного функционала
+
+# main.py
+
+Основной функционал проекта находится в связующем файле main.py
+Запуск проекта из коммандной строки:
+```commandline
+python main.py
 ```

@@ -2,7 +2,7 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from src.file_analyzer import csv_analyzer, xls_analyzer
+from src.file_analyzer import counting_in_the_dictionary, csv_analyzer, re_search_string, xls_analyzer
 
 
 @pytest.fixture
@@ -55,6 +55,25 @@ def exit_answer():
     ]
 
 
+@pytest.fixture
+def re_search_ans():
+    return [
+        {
+            "id": 650703,
+            "state": "EXECUTED",
+            "date": "2023-09-05T11:30:32Z",
+            "amount": 16210,
+            "currency_name": "Sol",
+            "currency_code": "PEN",
+            "from": "Счет 58803664561298323391",
+            "to": "Счет 39745660563456619397",
+            "description": "Перевод организации",
+        }
+    ]
+
+
+count_dict_exit = [{"Перевод организации": 1}, {"Перевод с карты на карту": 3}]
+count_dict_input = ["перевод с карты на карту", "перевод организации"]
 directory = r"C:\Users\islam\PycharmProjects\Liceum\data\test_excel.xlsx"
 
 
@@ -82,3 +101,15 @@ def test_xls_analyzer_empty():
     assert xls_analyzer("") == []
     assert xls_analyzer(566) == []
     assert xls_analyzer(r"C:\Users\islam\PycharmProjects\Liceum\data\none.xlsx") == []
+
+
+def re_search_string_basic(exit_answer, re_search_ans):
+    assert re_search_string(exit_answer, "организации") == re_search_ans
+    assert re_search_ans([], "вклад") == []
+    assert re_search_ans(exit_answer, "") == []
+    assert re_search_ans(1, "вклад") == []
+
+
+def counting_in_the_dictionary_basic(count_dict_exit, count_dict_input, exit_answer):
+    assert counting_in_the_dictionary(exit_answer, count_dict_input) == count_dict_exit
+    assert counting_in_the_dictionary("", 0) == []
