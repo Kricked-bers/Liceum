@@ -29,4 +29,3 @@ def xls_analyzer(directory: str) -> Any:
     except FileNotFoundError:
         return []
 
-
