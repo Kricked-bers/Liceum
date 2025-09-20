@@ -33,8 +33,8 @@ def xls_analyzer(directory: str) -> Any:
 
 
 def re_search_string(transactions: list, search_string: str) -> list:
-    '''Функция принимает на вход список словарей и строку
-    и возвращает список словарей в описании которых есть искомое слово'''
+    """Функция принимает на вход список словарей и строку
+    и возвращает список словарей в описании которых есть искомое слово"""
     if (
         not isinstance(transactions, list)
         or not isinstance(search_string, str)
@@ -50,8 +50,8 @@ def re_search_string(transactions: list, search_string: str) -> list:
 
 
 def counting_in_the_dictionary(transactions: list, search_desk: list) -> list:
-    '''Функция принимает на вход список словарей и список описаний транзакий
-    и возвращает словарь типа Описание: Кол-во записей с списке словарей с искомым описанием'''
+    """Функция принимает на вход список словарей и список описаний транзакий
+    и возвращает словарь типа Описание: Кол-во записей с списке словарей с искомым описанием"""
     if (
         not isinstance(transactions, list)
         or not isinstance(search_desk, list)
