@@ -1,7 +1,7 @@
 from typing import Any
 
 
-def filter_by_currency(dictionary: list, currency: str = "") -> Any:
+def filter_by_currency(dictionary: list, currency: str = "", file_type: str = "JSON") -> Any:
     """Функция принимает на вход список словарей и валюту и
     возвращает по очередности словари с указанным типом валюты"""
     if (
@@ -11,7 +11,11 @@ def filter_by_currency(dictionary: list, currency: str = "") -> Any:
     ):
         yield "-1"
         return
-    filter_gen = (element for element in dictionary if element["operationAmount"]["currency"]["code"] == currency)
+    filter_gen = ()
+    if file_type == "JSON":
+        filter_gen = [element for element in dictionary if element["operationAmount"]["currency"]["code"] == currency]
+    elif file_type == "CSV" or "XLSX":
+        filter_gen = [element for element in dictionary if element["currency_code"] == currency]
     for filter_gen_iter in filter_gen:
         yield filter_gen_iter
 
